@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Extras - Rainbow Rooster Colors O'ahu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: white;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 50%, #FFC107 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #FF6B9D;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        .page-header {
+            background: white;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #6c757d;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 3rem 5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #e9ecef;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            background: transparent;
+            border: none;
+            padding: 1rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+        
+        .tab-button:hover {
+            color: #FF6B9D;
+        }
+        
+        .tab-button.active {
+            color: #FF6B9D;
+            border-bottom-color: #FF6B9D;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .photo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 50%, #FFC107 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        
+        .photo-caption {
+            padding: 2rem;
+        }
+        
+        .photo-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+        
+        .photo-description {
+            color: #6c757d;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        .puzzle-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .puzzle-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .puzzle-question {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .answer-toggle {
+            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .answer-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        
+        .answer-content.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .answer-content strong {
+            color: #FF6B9D;
+            font-weight: 600;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .resource-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .resource-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-description {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .resource-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+        
+        @media (max-width: 968px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            header {
+                padding: 1.5rem 1.5rem;
+            }
+            
+            .container {
+                padding: 2rem 1.5rem 3rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .buy-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                border-bottom: none;
+            }
+            
+            .tab-button {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+                text-align: left;
+            }
+            
+            .tab-button.active {
+                border-left-color: #FF6B9D;
+                border-bottom-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-image">🐓</div>
+                <span class="logo-text">Rainbow Rooster</span>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="extras.html">Book Extras</a></li>
+                </ul>
+                <a href="#buy" class="buy-button">Buy Now</a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="page-header">
+        <h1 class="page-title">Book Extras</h1>
+        <p class="page-subtitle">Beautiful photos of featured locations, puzzle solutions, and bonus resources to enhance your O'ahu adventure.</p>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('photos')">📸 Photos</button>
+            <button class="tab-button" onclick="showTab('puzzles')">🧩 Puzzle Answers</button>
+            <button class="tab-button" onclick="showTab('resources')">🌺 Resources</button>
+        </div>
+        
+        <div id="photos" class="tab-content active">
+            <div class="photo-gallery">
+                <div class="photo-card">
+                    <div class="photo-placeholder">🏖️</div>
+                    <div class="photo-caption">
+                        <h3 class="photo-title">Lanikai Beach</h3>
+                        <p class="photo-description">One of O'ahu's most stunning beaches with turquoise waters and the iconic Mokulua Islands in the background. Perfect for kayaking and sunrise photos.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-placeholder">⛰️</div>
+                    <div class="photo-caption">
+                        <h3 class="photo-title">Diamond Head</h3>
+                        <p class="photo-description">The volcanic crater that defines Honolulu's skyline. Hike to the summit for panoramic views of Waikīkī and the Pacific Ocean.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-placeholder">🍜</div>
+                    <div class="photo-caption">
+                        <h3 class="photo-title">Local Plate Lunch</h3>
+                        <p class="photo-description">The quintessential Hawaiian meal featuring two scoops rice, macaroni salad, and your choice of protein. This is what locals eat every day.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-placeholder">🌊</div>
+                    <div class="photo-caption">
+                        <h3 class="photo-title">North Shore Waves</h3>
+                        <p class="photo-description">World-famous surfing destination. Winter brings massive waves that attract professional surfers from around the globe.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-placeholder">🐢</div>
+                    <div class="photo-caption">
+                        <h3 class="photo-title">Honu (Sea Turtle)</h3>
+                        <p class="photo-description">These gentle creatures are sacred in Hawaiian culture. Remember to admire them from a respectful distance.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-placeholder">🍧</div>
+                    <div class="photo-caption">
+                        <h3 class="photo-title">Shave Ice</h3>
+                        <p class="photo-description">Not shaved ice—shave ice! This Hawaiian treat features finely shaved ice with colorful syrups and optional ice cream at the bottom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="puzzles" class="tab-content">
+            <div class="puzzle-section">
+                <h3 class="puzzle-title">Word Search - Hawaiian Words</h3>
+                <p class="puzzle-question">Page 12: Find all 10 Hawaiian words hidden in the grid!</p>
+                <button class="answer-toggle" onclick="toggleAnswer('answer1')">Show Answer</button>
+                <div id="answer1" class="answer-content">
+                    <p><strong>Words Found:</strong> ALOHA (row 3, diagonal), MAHALO (row 5, horizontal), OHANA (column 2, vertical), HONU (row 7, backward), MAKAI (row 1, horizontal), MAUKA (column 6, vertical), WIKI (row 4, diagonal), PAU (row 8, horizontal), ONO (column 3, vertical), KEIKI (row 6, horizontal)</p>
+                </div>
+            </div>
+            
+            <div class="puzzle-section">
+                <h3 class="puzzle-title">Rooster's Riddle</h3>
+                <p class="puzzle-question">Page 18: "I'm tall and shaped like a diamond, locals climb me at dawn, and from my peak you can see the whole town. What am I?"</p>
+                <button class="answer-toggle" onclick="toggleAnswer('answer2')">Show Answer</button>
+                <div id="answer2" class="answer-content">
+                    <p><strong>Answer:</strong> Diamond Head! Also known as Lē'ahi in Hawaiian. The best time to hike is early morning before it gets too hot. Don't forget to bring water!</p>
+                </div>
+            </div>
+            
+            <div class="puzzle-section">
+                <h3 class="puzzle-title">Map Challenge</h3>
+                <p class="puzzle-question">Page 24: Connect the dots to reveal a famous O'ahu landmark!</p>
+                <button class="answer-toggle" onclick="toggleAnswer('answer3')">Show Answer</button>
+                <div id="answer3" class="answer-content">
+                    <p><strong>Answer:</strong> The completed image shows the Aloha Tower, Honolulu's historic lighthouse and clock tower. Built in 1926, it was once the tallest building in Hawaii!</p>
+                </div>
+            </div>
+            
+            <div class="puzzle-section">
+                <h3 class="puzzle-title">Food Trivia</h3>
+                <p class="puzzle-question">Page 31: Match each local food to its description!</p>
+                <button class="answer-toggle" onclick="toggleAnswer('answer4')">Show Answer</button>
+                <div id="answer4" class="answer-content">
+                    <p><strong>Answers:</strong><br>
+                    1. Poke → Fresh raw fish marinated in soy sauce and sesame oil<br>
+                    2. Loco Moco → Rice topped with hamburger patty, fried egg, and gravy<br>
+                    3. Malasada → Portuguese donut without a hole, rolled in sugar<br>
+                    4. Spam Musubi → Rice and Spam wrapped in nori seaweed<br>
+                    5. Haupia → Coconut milk-based Hawaiian dessert</p>
+                </div>
+            </div>
+            
+            <div class="puzzle-section">
+                <h3 class="puzzle-title">Color Code</h3>
+                <p class="puzzle-question">Page 45: Use the color key to decode the secret message!</p>
+                <button class="answer-toggle" onclick="toggleAnswer('answer5')">Show Answer</button>
+                <div id="answer5" class="answer-content">
+                    <p><strong>Decoded Message:</strong> "E komo mai" — This means "Welcome" in Hawaiian! It's what you'll hear when you arrive at someone's home or enter a local business. The spirit of aloha is all about welcoming others with open arms.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="resources" class="tab-content">
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📱</div>
+                    <h3 class="resource-title">Coloring Pages</h3>
+                    <p class="resource-description">Download printable PDFs of select coloring pages from the book</p>
+                    <a href="#" class="resource-link">Download</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🎓</div>
+                    <h3 class="resource-title">Hawaiian Guide</h3>
+                    <p class="resource-description">Extended pronunciation guide and common phrases</p>
+                    <a href="#" class="resource-link">Learn More</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🗓️</div>
+                    <h3 class="resource-title">Event Calendar</h3>
+                    <p class="resource-description">Local festivals, farmers markets, and cultural events</p>
+                    <a href="#" class="resource-link">View Calendar</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📍</div>
+                    <h3 class="resource-title">Interactive Map</h3>
+                    <p class="resource-description">All locations from the book on Google Maps</p>
+                    <a href="#" class="resource-link">Open Map</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📧</div>
+                    <h3 class="resource-title">Newsletter</h3>
+                    <p class="resource-description">Updates on new content and O'ahu travel tips</p>
+                    <a href="#" class="resource-link">Subscribe</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">💬</div>
+                    <h3 class="resource-title">Community</h3>
+                    <p class="resource-description">Share your colored pages with other readers</p>
+                    <a href="#" class="resource-link">Join Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Rainbow Rooster Colors O'ahu</p>
+        <p>Art by Waibun and Emily Lee • Written by Sam Robert Chen</p>
+    </footer>
+    
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.classList.toggle('show');
+            
+            const button = event.target;
+            if (answer.classList.contains('show')) {
+                button.textContent = 'Hide Answer';
+            } else {
+                button.textContent = 'Show Answer';
+            }
+        }
+    </script>
+</body>
+</html>

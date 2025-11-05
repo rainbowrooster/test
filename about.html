@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Rainbow Rooster Colors O'ahu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: white;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 50%, #FFC107 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #FF6B9D;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        .page-header {
+            background: white;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #6c757d;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+        
+        .team-section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .team-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+        
+        .team-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .team-role {
+            font-size: 1rem;
+            color: #FF6B9D;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .team-bio {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #6c757d;
+            font-weight: 300;
+        }
+        
+        .highlight-section {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 100%);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin: 5rem auto;
+            max-width: 1200px;
+        }
+        
+        .highlight-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        @media (max-width: 968px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            header {
+                padding: 1.5rem 1.5rem;
+            }
+            
+            .container {
+                padding: 3rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .buy-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-image">🐓</div>
+                <span class="logo-text">Rainbow Rooster</span>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="extras.html">Book Extras</a></li>
+                </ul>
+                <a href="#buy" class="buy-button">Buy Now</a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="page-header">
+        <h1 class="page-title">Meet the Team</h1>
+        <p class="page-subtitle">Rainbow Rooster Colors O'ahu is the result of a passionate collaboration between a local O'ahu resident and talented illustrators who brought these special places to life.</p>
+    </div>
+    
+    <div class="container">
+        <div class="team-section">
+            <h2 class="section-title">The Authors</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">✍️</div>
+                    <h3 class="team-name">Sam Chen</h3>
+                    <p class="team-role">Writer & Local Guide</p>
+                    <p class="team-bio">Sam is a proud O'ahu resident who has spent years discovering the island's best-kept secrets. From the perfect shave ice spot to hidden beaches that don't appear in guidebooks, Sam's local knowledge runs deep. When not exploring the island, Sam loves sharing stories about Hawaiian culture, practicing 'ōlelo Hawai'i, and enjoying plate lunch with friends.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">✍️</div>
+                    <h3 class="team-name">Robert Chen</h3>
+                    <p class="team-role">Writer & Local Guide</p>
+                    <p class="team-bio">Robert brings a fresh perspective to exploring O'ahu, combining local insights with a passion for cultural storytelling. Together with Sam, Robert helped curate the most authentic experiences and hidden gems that make this guide special. The two authors have collaborated to create something truly meaningful—a love letter to O'ahu that captures the spirit of aloha and shares the authentic island experience with visitors and locals alike.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="team-section">
+            <h2 class="section-title">The Illustrators</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">🎨</div>
+                    <h3 class="team-name">Waibun</h3>
+                    <p class="team-role">Illustrator</p>
+                    <p class="team-bio">Waibun brings O'ahu's vibrant landscapes and iconic locations to life with artistic flair and attention to detail. With a deep appreciation for Hawaii's natural beauty and cultural significance, Waibun's illustrations capture the spirit of each location—from the way sunlight hits Diamond Head to the colorful chaos of a local farmers market. Every line is drawn with aloha and a commitment to representing O'ahu authentically.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">🖌️</div>
+                    <h3 class="team-name">Emily Lee</h3>
+                    <p class="team-role">Illustrator</p>
+                    <p class="team-bio">Emily Lee's artistic vision shines through in every page of this book. With a talent for capturing both the grand vistas and intimate details that make O'ahu special, Emily creates illustrations that are perfect for coloring while also standing as beautiful art pieces. Emily's work invites readers to slow down, engage with each location, and add their own creative interpretation to their O'ahu journey.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight-section">
+            <h3>Why a Rooster Guide?</h3>
+            <p>If you've spent any time on O'ahu, you've met the island's unofficial mascots—the wild chickens! These colorful characters roam freely across the island, and we couldn't think of a better guide to represent the free-spirited, adventurous nature of exploring O'ahu. Our Rainbow Rooster embodies the aloha spirit: welcoming, vibrant, and always ready for an adventure!</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Rainbow Rooster Colors O'ahu</p>
+        <p>Art by Waibun and Emily Lee • Written by Sam Chen and Robert Chen</p>
+        <div class="social-links">
+            <a href="https://instagram.com/rainbowroosterguides" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram">📷</a>
+            <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
+        </div>
+    </footer>
+    
+    <script>
+        function decodeEmail() {
+            const encodedEmail = 'aW5mb0ByYWluYm93LXJvb3N0ZXIuY29t';
+            const decodedEmail = atob(encodedEmail);
+            window.location.href = 'mailto:' + decodedEmail;
+        }
+    </script>
+</body>
+</html>
