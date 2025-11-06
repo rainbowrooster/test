@@ -15,9 +15,15 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f5e5c7 0%, #ffffff 100%);
             color: #2c3e50;
             line-height: 1.6;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         header {
@@ -46,12 +52,18 @@
         .logo-image {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 50%, #FFC107 100%);
+            background: linear-gradient(135deg, #d1472b 0%, #d97538 25%, #54a185 50%, #427da6 75%, #754a66 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            overflow: hidden;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .logo-text {
@@ -82,11 +94,16 @@
         }
         
         .nav-links a:hover {
-            color: #FF6B9D;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
         }
         
         .buy-button {
-            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185);
+            background-size: 200% 200%;
             color: white;
             padding: 0.75rem 2rem;
             border-radius: 30px;
@@ -94,16 +111,17 @@
             font-weight: 600;
             font-size: 1rem;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+            animation: shimmer 3s ease infinite;
         }
         
         .buy-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
         }
         
         .page-header {
-            background: white;
+            background: #f5e5c7;
             padding: 4rem 3rem;
             text-align: center;
         }
@@ -126,58 +144,64 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem 3rem 5rem;
+            padding: 5rem 3rem;
         }
         
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid #e9ecef;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
             flex-wrap: wrap;
         }
         
         .tab-button {
-            background: transparent;
-            border: none;
-            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            padding: 0.9rem 2rem;
             font-family: 'Poppins', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #6c757d;
+            color: #2c3e50;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
         }
         
         .tab-button:hover {
-            color: #FF6B9D;
+            border-color: #d1472b;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .tab-button.active {
-            color: #FF6B9D;
-            border-bottom-color: #FF6B9D;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185);
+            background-size: 200% 200%;
+            color: white;
+            border-color: transparent;
+            animation: shimmer 3s ease infinite;
         }
         
         .tab-content {
             display: none;
+            animation: fadeIn 0.5s;
         }
         
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.5s;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2.5rem;
         }
         
@@ -187,27 +211,37 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
+            z-index: 1;
         }
         
         .photo-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .photo-placeholder {
             width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 50%, #FFC107 100%);
+            height: 250px;
+            background: linear-gradient(135deg, #54a185 0%, #427da6 50%, #754a66 100%);
+            background-size: 200% 200%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-        }
-        
-        .photo-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
+            animation: shimmer 6s ease infinite;
         }
         
         .photo-caption {
@@ -215,83 +249,70 @@
         }
         
         .photo-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: #2c3e50;
             margin-bottom: 0.75rem;
         }
         
         .photo-description {
             color: #6c757d;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 0.95rem;
             font-weight: 300;
         }
         
-        .puzzle-section {
+        .game-section {
             background: white;
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .puzzle-title {
-            font-size: 1.75rem;
-            font-weight: 600;
+        .game-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
+        }
+        
+        .game-title {
+            font-size: 1.8rem;
+            font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        
-        .puzzle-question {
-            font-size: 1.1rem;
-            color: #6c757d;
             margin-bottom: 1.5rem;
-            line-height: 1.7;
         }
         
-        .answer-toggle {
-            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        .items-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
         
-        .answer-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
-        }
-        
-        .answer-content {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1.5rem;
+        .item {
+            padding: 0.75rem 1rem;
             background: #f8f9fa;
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #2c3e50;
-            line-height: 1.8;
         }
         
-        .answer-content.show {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-        
-        .answer-content strong {
-            color: #FF6B9D;
-            font-weight: 600;
+        .item strong {
+            color: #d1472b;
         }
         
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
         }
         
@@ -302,47 +323,92 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
         }
         
         .resource-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .resource-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .resource-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
         
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+        
         .resource-description {
-            font-size: 1rem;
             color: #6c757d;
             margin-bottom: 1.5rem;
+            font-size: 0.95rem;
             font-weight: 300;
         }
         
         .resource-link {
             display: inline-block;
-            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185);
+            background-size: 200% 200%;
             color: white;
             padding: 0.75rem 2rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+            animation: shimmer 3s ease infinite;
         }
         
         .resource-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(84, 161, 133, 0.4);
+            animation: shimmer 4s ease infinite;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(84, 161, 133, 0.6);
         }
         
         footer {
@@ -363,8 +429,12 @@
                 font-size: 2.5rem;
             }
             
-            .photo-gallery {
-                grid-template-columns: 1fr;
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                width: 100%;
             }
             
             .nav-container {
@@ -380,7 +450,7 @@
             }
             
             .container {
-                padding: 2rem 1.5rem 3rem;
+                padding: 3rem 1.5rem;
             }
         }
         
@@ -393,22 +463,6 @@
                 padding: 0.6rem 1.5rem;
                 font-size: 0.9rem;
             }
-            
-            .tabs {
-                flex-direction: column;
-                border-bottom: none;
-            }
-            
-            .tab-button {
-                border-bottom: none;
-                border-left: 3px solid transparent;
-                text-align: left;
-            }
-            
-            .tab-button.active {
-                border-left-color: #FF6B9D;
-                border-bottom-color: transparent;
-            }
         }
     </style>
 </head>
@@ -416,7 +470,9 @@
     <header>
         <nav>
             <div class="logo-container">
-                <div class="logo-image">🐓</div>
+                <div class="logo-image">
+                    <img src="img/logo.svg" alt="Rainbow Rooster Logo">
+                </div>
                 <span class="logo-text">Rainbow Rooster</span>
             </div>
             <div class="nav-container">
@@ -432,14 +488,14 @@
     
     <div class="page-header">
         <h1 class="page-title">Book Extras</h1>
-        <p class="page-subtitle">Beautiful photos of featured locations, puzzle solutions, and bonus resources to enhance your O'ahu adventure.</p>
+        <p class="page-subtitle">Bonus content to enhance your Rainbow Rooster experience. Photos of featured locations, game answers, and additional resources.</p>
     </div>
     
     <div class="container">
         <div class="tabs">
-            <button class="tab-button active" onclick="showTab('photos')">📸 Photos</button>
-            <button class="tab-button" onclick="showTab('puzzles')">🧩 Puzzle Answers</button>
-            <button class="tab-button" onclick="showTab('resources')">🌺 Resources</button>
+            <button class="tab-button active" onclick="showTab(event, 'photos')">Photos</button>
+            <button class="tab-button" onclick="showTab(event, 'games')">Game Answers</button>
+            <button class="tab-button" onclick="showTab(event, 'resources')">Resources</button>
         </div>
         
         <div id="photos" class="tab-content active">
@@ -448,7 +504,7 @@
                     <div class="photo-placeholder">🏖️</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Lanikai Beach</h3>
-                        <p class="photo-description">One of O'ahu's most stunning beaches with turquoise waters and the iconic Mokulua Islands in the background. Perfect for kayaking and sunrise photos.</p>
+                        <p class="photo-description">One of O'ahu's most stunning beaches with turquoise waters and the iconic Mokulua Islands in the background. Perfect for kayaking and sunrise photos!</p>
                     </div>
                 </div>
                 
@@ -464,7 +520,7 @@
                     <div class="photo-placeholder">🍜</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Local Plate Lunch</h3>
-                        <p class="photo-description">The quintessential Hawaiian meal featuring two scoops rice, macaroni salad, and your choice of protein. This is what locals eat every day.</p>
+                        <p class="photo-description">The quintessential Hawaiian meal! Two scoops rice, macaroni salad, and your choice of protein. This is what locals eat for lunch every day.</p>
                     </div>
                 </div>
                 
@@ -480,7 +536,7 @@
                     <div class="photo-placeholder">🐢</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Honu (Sea Turtle)</h3>
-                        <p class="photo-description">These gentle creatures are sacred in Hawaiian culture. Remember to admire them from a respectful distance.</p>
+                        <p class="photo-description">These gentle creatures are sacred in Hawaiian culture. Remember to admire them from a respectful distance!</p>
                     </div>
                 </div>
                 
@@ -494,54 +550,34 @@
             </div>
         </div>
         
-        <div id="puzzles" class="tab-content">
-            <div class="puzzle-section">
-                <h3 class="puzzle-title">Word Search - Hawaiian Words</h3>
-                <p class="puzzle-question">Page 12: Find all 10 Hawaiian words hidden in the grid!</p>
-                <button class="answer-toggle" onclick="toggleAnswer('answer1')">Show Answer</button>
-                <div id="answer1" class="answer-content">
-                    <p><strong>Words Found:</strong> ALOHA (row 3, diagonal), MAHALO (row 5, horizontal), OHANA (column 2, vertical), HONU (row 7, backward), MAKAI (row 1, horizontal), MAUKA (column 6, vertical), WIKI (row 4, diagonal), PAU (row 8, horizontal), ONO (column 3, vertical), KEIKI (row 6, horizontal)</p>
+        <div id="games" class="tab-content">
+            <div class="game-section">
+                <h3 class="game-title">Official Hawaii State Symbols</h3>
+                <div class="items-list">
+                    <div class="item"><strong>Egg #1:</strong> Yellow Hibiscus (State Flower)</div>
+                    <div class="item"><strong>Egg #2:</strong> Nēnē Goose (State Bird)</div>
+                    <div class="item"><strong>Egg #3:</strong> Kukui Tree (State Tree)</div>
+                    <div class="item"><strong>Egg #4:</strong> Humuhumunukunukuāpua'a (State Fish)</div>
+                    <div class="item"><strong>Egg #5:</strong> Hawaiian Monk Seal (State Mammal)</div>
+                    <div class="item"><strong>Egg #6:</strong> Pūlelehua (Kamehameha Butterfly, State Insect)</div>
+                    <div class="item"><strong>Egg #7:</strong> Black Coral (State Gem)</div>
+                    <div class="item"><strong>Egg #8:</strong> Aloha Spirit (State Motto)</div>
+                    <div class="item"><strong>Egg #9:</strong> Hawai'i Pono'ī (State Song)</div>
                 </div>
             </div>
             
-            <div class="puzzle-section">
-                <h3 class="puzzle-title">Rooster's Riddle</h3>
-                <p class="puzzle-question">Page 18: "I'm tall and shaped like a diamond, locals climb me at dawn, and from my peak you can see the whole town. What am I?"</p>
-                <button class="answer-toggle" onclick="toggleAnswer('answer2')">Show Answer</button>
-                <div id="answer2" class="answer-content">
-                    <p><strong>Answer:</strong> Diamond Head! Also known as Lē'ahi in Hawaiian. The best time to hike is early morning before it gets too hot. Don't forget to bring water!</p>
-                </div>
-            </div>
-            
-            <div class="puzzle-section">
-                <h3 class="puzzle-title">Map Challenge</h3>
-                <p class="puzzle-question">Page 24: Connect the dots to reveal a famous O'ahu landmark!</p>
-                <button class="answer-toggle" onclick="toggleAnswer('answer3')">Show Answer</button>
-                <div id="answer3" class="answer-content">
-                    <p><strong>Answer:</strong> The completed image shows the Aloha Tower, Honolulu's historic lighthouse and clock tower. Built in 1926, it was once the tallest building in Hawaii!</p>
-                </div>
-            </div>
-            
-            <div class="puzzle-section">
-                <h3 class="puzzle-title">Food Trivia</h3>
-                <p class="puzzle-question">Page 31: Match each local food to its description!</p>
-                <button class="answer-toggle" onclick="toggleAnswer('answer4')">Show Answer</button>
-                <div id="answer4" class="answer-content">
-                    <p><strong>Answers:</strong><br>
-                    1. Poke → Fresh raw fish marinated in soy sauce and sesame oil<br>
-                    2. Loco Moco → Rice topped with hamburger patty, fried egg, and gravy<br>
-                    3. Malasada → Portuguese donut without a hole, rolled in sugar<br>
-                    4. Spam Musubi → Rice and Spam wrapped in nori seaweed<br>
-                    5. Haupia → Coconut milk-based Hawaiian dessert</p>
-                </div>
-            </div>
-            
-            <div class="puzzle-section">
-                <h3 class="puzzle-title">Color Code</h3>
-                <p class="puzzle-question">Page 45: Use the color key to decode the secret message!</p>
-                <button class="answer-toggle" onclick="toggleAnswer('answer5')">Show Answer</button>
-                <div id="answer5" class="answer-content">
-                    <p><strong>Decoded Message:</strong> "E komo mai" — This means "Welcome" in Hawaiian! It's what you'll hear when you arrive at someone's home or enter a local business. The spirit of aloha is all about welcoming others with open arms.</p>
+            <div class="game-section">
+                <h3 class="game-title">Unofficial Hawaii Icons</h3>
+                <div class="items-list">
+                    <div class="item"><strong>Egg #10:</strong> Spam Musubi</div>
+                    <div class="item"><strong>Egg #11:</strong> Shave Ice</div>
+                    <div class="item"><strong>Egg #12:</strong> Rainbow</div>
+                    <div class="item"><strong>Egg #13:</strong> Ukulele</div>
+                    <div class="item"><strong>Egg #14:</strong> Hula Dancer</div>
+                    <div class="item"><strong>Egg #15:</strong> Pineapple</div>
+                    <div class="item"><strong>Egg #16:</strong> Surfboard</div>
+                    <div class="item"><strong>Egg #17:</strong> Tiki</div>
+                    <div class="item"><strong>Egg #18:</strong> Wild Chicken</div>
                 </div>
             </div>
         </div>
@@ -550,56 +586,61 @@
             <div class="resources-grid">
                 <div class="resource-card">
                     <div class="resource-icon">📱</div>
-                    <h3 class="resource-title">Coloring Pages</h3>
-                    <p class="resource-description">Download printable PDFs of select coloring pages from the book</p>
+                    <h3 class="resource-title">Download Coloring Pages</h3>
+                    <p class="resource-description">Get printable PDFs of select coloring pages from the book!</p>
                     <a href="#" class="resource-link">Download</a>
                 </div>
                 
                 <div class="resource-card">
                     <div class="resource-icon">🎓</div>
-                    <h3 class="resource-title">Hawaiian Guide</h3>
-                    <p class="resource-description">Extended pronunciation guide and common phrases</p>
-                    <a href="#" class="resource-link">Learn More</a>
+                    <h3 class="resource-title">Hawaiian Language Dictionary</h3>
+                    <p class="resource-description">Extended pronunciation guide and common phrases to enhance your journey.</p>
+                    <a href="https://wehewehe.org/?l=en" target="_blank" rel="noopener noreferrer" class="resource-link">Learn More</a>
                 </div>
                 
                 <div class="resource-card">
                     <div class="resource-icon">🗓️</div>
                     <h3 class="resource-title">Event Calendar</h3>
-                    <p class="resource-description">Local festivals, farmers markets, and cultural events</p>
+                    <p class="resource-description">Local festivals, farmers markets, and cultural events happening now.</p>
                     <a href="#" class="resource-link">View Calendar</a>
                 </div>
                 
                 <div class="resource-card">
                     <div class="resource-icon">📍</div>
                     <h3 class="resource-title">Interactive Map</h3>
-                    <p class="resource-description">All locations from the book on Google Maps</p>
+                    <p class="resource-description">Google Maps with all locations featured in the book marked for easy navigation.</p>
                     <a href="#" class="resource-link">Open Map</a>
                 </div>
                 
                 <div class="resource-card">
                     <div class="resource-icon">📧</div>
                     <h3 class="resource-title">Newsletter</h3>
-                    <p class="resource-description">Updates on new content and O'ahu travel tips</p>
+                    <p class="resource-description">Get updates on new content and insider O'ahu tips delivered to your inbox.</p>
                     <a href="#" class="resource-link">Subscribe</a>
                 </div>
                 
                 <div class="resource-card">
                     <div class="resource-icon">💬</div>
-                    <h3 class="resource-title">Community</h3>
-                    <p class="resource-description">Share your colored pages with other readers</p>
-                    <a href="#" class="resource-link">Join Us</a>
+                    <h3 class="resource-title">Share Your Colors</h3>
+                    <p class="resource-description">Post your finished pages using #rainbowroosterart and connect with other readers.</p>
+                    <a href="https://www.instagram.com/explore/tags/rainbowroosterart/" target="_blank" rel="noopener noreferrer" class="resource-link">View Gallery</a>
                 </div>
             </div>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2024 Rainbow Rooster Colors O'ahu</p>
-        <p>Art by Waibun and Emily Lee • Written by Sam Robert Chen</p>
+        <p>&copy; 2025 Rainbow Rooster Colors O'ahu</p>
+        <p>Art by Waibun Lee and Emily Lee • Written by Sam Chen and Robert Chen</p>
+        <div class="social-links">
+            <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram">📷</a>
+            <a href="https://facebook.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Like us on Facebook">👍</a>
+            <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
+        </div>
     </footer>
     
     <script>
-        function showTab(tabName) {
+        function showTab(event, tabName) {
             const tabs = document.querySelectorAll('.tab-content');
             const buttons = document.querySelectorAll('.tab-button');
             
@@ -610,16 +651,10 @@
             event.target.classList.add('active');
         }
         
-        function toggleAnswer(answerId) {
-            const answer = document.getElementById(answerId);
-            answer.classList.toggle('show');
-            
-            const button = event.target;
-            if (answer.classList.contains('show')) {
-                button.textContent = 'Hide Answer';
-            } else {
-                button.textContent = 'Show Answer';
-            }
+        function decodeEmail() {
+            const encodedEmail = 'aW5mb0BoaXJhaW5ib3dyb29zdGVyLmNvbQ==';
+            const decodedEmail = atob(encodedEmail);
+            window.location.href = 'mailto:' + decodedEmail;
         }
     </script>
 </body>

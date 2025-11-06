@@ -15,9 +15,15 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f5e5c7 0%, #ffffff 100%);
             color: #2c3e50;
             line-height: 1.6;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         header {
@@ -46,12 +52,18 @@
         .logo-image {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 50%, #FFC107 100%);
+            background: linear-gradient(135deg, #d1472b 0%, #d97538 25%, #54a185 50%, #427da6 75%, #754a66 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            overflow: hidden;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .logo-text {
@@ -82,11 +94,16 @@
         }
         
         .nav-links a:hover {
-            color: #FF6B9D;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
         }
         
         .buy-button {
-            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185);
+            background-size: 200% 200%;
             color: white;
             padding: 0.75rem 2rem;
             border-radius: 30px;
@@ -94,16 +111,17 @@
             font-weight: 600;
             font-size: 1rem;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+            animation: shimmer 3s ease infinite;
         }
         
         .buy-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
         }
         
         .page-header {
-            background: white;
+            background: #f5e5c7;
             padding: 4rem 3rem;
             text-align: center;
         }
@@ -153,23 +171,39 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
         }
         
         .team-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .team-avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185);
+            background-size: 200% 200%;
             margin: 0 auto 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3.5rem;
+            animation: shimmer 4s ease infinite;
         }
         
         .team-name {
@@ -182,7 +216,7 @@
         
         .team-role {
             font-size: 1rem;
-            color: #FF6B9D;
+            color: #d1472b;
             font-weight: 600;
             margin-bottom: 1.5rem;
             text-align: center;
@@ -196,13 +230,15 @@
         }
         
         .highlight-section {
-            background: linear-gradient(135deg, #FF6B9D 0%, #C06CE0 100%);
+            background: linear-gradient(135deg, #54a185 0%, #427da6 50%, #754a66 100%);
+            background-size: 200% 200%;
             padding: 4rem 3rem;
             border-radius: 20px;
             text-align: center;
             color: white;
             margin: 5rem auto;
             max-width: 1200px;
+            animation: shimmer 6s ease infinite;
         }
         
         .highlight-section h3 {
@@ -219,19 +255,6 @@
             margin: 0 auto;
         }
         
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 5rem;
-        }
-        
-        footer p {
-            font-weight: 300;
-            margin: 0.5rem 0;
-        }
-        
         .social-links {
             display: flex;
             justify-content: center;
@@ -245,18 +268,33 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #FF6B9D, #C06CE0);
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
             border-radius: 50%;
             text-decoration: none;
             color: white;
             font-size: 1.5rem;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+            box-shadow: 0 4px 15px rgba(84, 161, 133, 0.4);
+            animation: shimmer 4s ease infinite;
         }
         
         .social-icon:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(84, 161, 133, 0.6);
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            font-weight: 300;
+            margin: 0.5rem 0;
         }
         
         @media (max-width: 968px) {
@@ -301,7 +339,9 @@
     <header>
         <nav>
             <div class="logo-container">
-                <div class="logo-image">🐓</div>
+                <div class="logo-image">
+                    <img src="img/logo.svg" alt="Rainbow Rooster Logo">
+                </div>
                 <span class="logo-text">Rainbow Rooster</span>
             </div>
             <div class="nav-container">
@@ -317,7 +357,7 @@
     
     <div class="page-header">
         <h1 class="page-title">Meet the Team</h1>
-        <p class="page-subtitle">Rainbow Rooster Colors O'ahu is the result of a passionate collaboration between a local O'ahu resident and talented illustrators who brought these special places to life.</p>
+        <p class="page-subtitle">Rainbow Rooster Colors O'ahu is the result of a passionate collaboration between local O'ahu residents and talented illustrators who brought these special places to life.</p>
     </div>
     
     <div class="container">
@@ -345,7 +385,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-avatar">🎨</div>
-                    <h3 class="team-name">Waibun</h3>
+                    <h3 class="team-name">Waibun Lee</h3>
                     <p class="team-role">Illustrator</p>
                     <p class="team-bio">Waibun brings O'ahu's vibrant landscapes and iconic locations to life with artistic flair and attention to detail. With a deep appreciation for Hawaii's natural beauty and cultural significance, Waibun's illustrations capture the spirit of each location—from the way sunlight hits Diamond Head to the colorful chaos of a local farmers market. Every line is drawn with aloha and a commitment to representing O'ahu authentically.</p>
                 </div>
@@ -367,16 +407,17 @@
     
     <footer>
         <p>&copy; 2025 Rainbow Rooster Colors O'ahu</p>
-        <p>Art by Waibun and Emily Lee • Written by Sam Chen and Robert Chen</p>
+        <p>Art by Waibun Lee and Emily Lee • Written by Sam Chen and Robert Chen</p>
         <div class="social-links">
-            <a href="https://instagram.com/rainbowroosterguides" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram">📷</a>
+            <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram">📷</a>
+            <a href="https://facebook.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Like us on Facebook">👍</a>
             <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
         </div>
     </footer>
     
     <script>
         function decodeEmail() {
-            const encodedEmail = 'aW5mb0ByYWluYm93LXJvb3N0ZXIuY29t';
+            const encodedEmail = 'aW5mb0BoaXJhaW5ib3dyb29zdGVyLmNvbQ==';
             const decodedEmail = atob(encodedEmail);
             window.location.href = 'mailto:' + decodedEmail;
         }
