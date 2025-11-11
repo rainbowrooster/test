@@ -51,20 +51,16 @@
         }
         
         .logo-image {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #d1472b 0%, #d97538 25%, #54a185 50%, #427da6 75%, #754a66 100%);
-            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            padding: 3px;
         }
         
         .logo-image img {
-            width: 120%;
-            height: 120%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
         
@@ -338,7 +334,7 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
         
         .social-icon {
@@ -365,13 +361,33 @@
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 3rem 2rem 2rem;
             margin-top: 5rem;
         }
         
         footer p {
             font-weight: 300;
             margin: 0.5rem 0;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.7;
         }
         
         @media (max-width: 968px) {
@@ -381,10 +397,6 @@
             
             .team-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .nav-container {
-                gap: 1.5rem;
             }
             
             header {
@@ -397,17 +409,36 @@
         }
         
         @media (max-width: 640px) {
+            nav {
+                justify-content: space-between;
+            }
+            
             .nav-links {
                 display: none;
             }
             
             .hamburger {
                 display: flex;
+                order: -1;
+            }
+            
+            .logo-container {
+                flex: 1;
+                justify-content: center;
+            }
+            
+            .nav-container {
+                gap: 1rem;
             }
             
             .buy-button {
                 padding: 0.6rem 1.5rem;
                 font-size: 0.9rem;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
@@ -415,6 +446,11 @@
 <body>
     <header>
         <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="logo-container">
                 <div class="logo-image">
                     <img src="img/logo.svg" alt="Rainbow Rooster Logo">
@@ -427,11 +463,6 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="extras.html">Book Extras</a></li>
                 </ul>
-                <div class="hamburger" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
                 <a href="https://buy.stripe.com/test_00wdR883pgBQ6LJ8iN2B200" class="buy-button">Buy Now</a>
             </div>
         </nav>
@@ -455,7 +486,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="img/sam.gif" alt="Sam Chen">
+                        <img src="img/sam.svg" alt="Sam Chen">
                     </div>
                     <h3 class="team-name">Sam Chen</h3>
                     <p class="team-role">Writer & Local Guide</p>
@@ -464,7 +495,7 @@
                 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="img/robert.gif" alt="Robert Chen">
+                        <img src="img/robert.svg" alt="Robert Chen">
                     </div>
                     <h3 class="team-name">Robert Chen</h3>
                     <p class="team-role">Writer & Local Guide</p>
@@ -478,7 +509,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="img/waibun.gif" alt="Waibun Lee">
+                        <img src="img/waibun.svg" alt="Waibun Lee">
                     </div>
                     <h3 class="team-name">Waibun Lee</h3>
                     <p class="team-role">Illustrator</p>
@@ -487,7 +518,7 @@
                 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="img/emily.gif" alt="Emily Lee">
+                        <img src="img/emily.svg" alt="Emily Lee">
                     </div>
                     <h3 class="team-name">Emily Lee</h3>
                     <p class="team-role">Illustrator</p>
@@ -503,12 +534,17 @@
     </div>
     
     <footer>
-        <p>&copy; 2025 Rainbow Rooster Colors O'ahu</p>
+        <p>&copy; 2025 Rainbow Rooster Guides</p>
         <p>Written by Sam Chen and Robert Chen • Art by Waibun Lee and Emily Lee</p>
         <div class="social-links">
             <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://facebook.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Like us on Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="extras.html">Book Extras</a>
         </div>
     </footer>
     
