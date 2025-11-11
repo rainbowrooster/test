@@ -58,14 +58,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            position: relative;
         }
         
-        .logo-image img {
-            width: 84px !important;
-            height: 84px !important;
-            max-width: none;
-            object-fit: contain;
+        .logo-image::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background-image: url('img/logo.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         
         .logo-text {
@@ -487,9 +491,7 @@
     <header>
         <nav>
             <div class="logo-container">
-                <div class="logo-image">
-                    <img src="img/logo.svg" alt="Rainbow Rooster Logo">
-                </div>
+                <div class="logo-image"></div>
                 <span class="logo-text">Rainbow Rooster</span>
             </div>
             <div class="nav-container">
