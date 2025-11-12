@@ -236,11 +236,13 @@
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
         }
         
-        .tab-button:hover {
+        .tab-button:hover:not(.active) {
             border-color: #d1472b;
             color: #d1472b;
+            background: white;
         }
         
         .tab-button.active {
@@ -569,7 +571,7 @@
             }
             
             .logo-text {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .nav-container {
@@ -577,8 +579,8 @@
             }
             
             .buy-button {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
             }
             
             .footer-nav {
@@ -635,7 +637,7 @@
         <div id="photos" class="tab-content active">
             <div class="photo-gallery">
                 <div class="photo-card">
-                    <div class="photo-placeholder">🏖️</div>
+                    <div class="photo-placeholder">🖍️</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Lanikai Beach</h3>
                         <p class="photo-description">One of O'ahu's most stunning beaches with turquoise waters and the iconic Mokulua Islands in the background. Perfect for kayaking and sunrise photos!</p>
@@ -667,7 +669,7 @@
                 </div>
                 
                 <div class="photo-card">
-                    <div class="photo-placeholder">🐢</div>
+                    <div class="photo-placeholder">�</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Honu (Sea Turtle)</h3>
                         <p class="photo-description">These gentle creatures are sacred in Hawaiian culture. Remember to admire them from a respectful distance!</p>
@@ -675,7 +677,7 @@
                 </div>
                 
                 <div class="photo-card">
-                    <div class="photo-placeholder">🍧</div>
+                    <div class="photo-placeholder">🧊</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Shave Ice</h3>
                         <p class="photo-description">Not shaved ice—shave ice! This Hawaiian treat features finely shaved ice with colorful syrups and optional ice cream at the bottom.</p>
@@ -806,4 +808,14 @@
             const menu = document.getElementById('mobileMenu');
             const hamburger = document.querySelector('.hamburger');
             menu.classList.toggle('active');
-            hamburger.classList.
+            hamburger.classList.toggle('active');
+        }
+        
+        function decodeEmail() {
+            const encodedEmail = 'aW5mb0BoaXJhaW5ib3dyb29zdGVyLmNvbQ==';
+            const decodedEmail = atob(encodedEmail);
+            window.location.href = 'mailto:' + decodedEmail;
+        }
+    </script>
+</body>
+</html>
