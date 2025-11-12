@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -244,11 +248,7 @@
         
         .tab-button:hover {
             border-color: #d1472b;
-            background: linear-gradient(135deg, #d1472b, #d97538, #54a185);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #d1472b;
         }
         
         .tab-button.active {
@@ -397,7 +397,7 @@
             width: 45px;
             height: 55px;
             background: linear-gradient(135deg, #FFE5B4 0%, #FFF8DC 50%, #FFE5B4 100%);
-            border-radius: 45% 45% 50% 50%;
+            border-radius: 50% 50% 45% 45%;
             border: 3px solid #d97538;
             font-weight: 700;
             font-size: 1.1rem;
@@ -542,17 +542,40 @@
         }
         
         @media (max-width: 640px) {
+            nav {
+                justify-content: space-between;
+            }
+            
             .nav-links {
                 display: none;
             }
             
             .hamburger {
                 display: flex;
+                order: -1;
+            }
+            
+            .logo-container {
+                flex: 1;
+                justify-content: center;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .nav-container {
+                gap: 1rem;
             }
             
             .buy-button {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 0.5rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
