@@ -47,7 +47,9 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
         }
         
         .logo-image {
@@ -65,7 +67,7 @@
         }
         
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #2c3e50;
             letter-spacing: -0.5px;
@@ -172,7 +174,7 @@
         }
         
         .buy-button {
-            background: linear-gradient(135deg, #d1472b, #d97538, #754a66);
+            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
             background-size: 200% 200%;
             color: white;
             padding: 0.75rem 2rem;
@@ -226,7 +228,7 @@
         
         .hero-cta {
             display: inline-block;
-            background: linear-gradient(135deg, #d1472b, #d97538, #754a66);
+            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
             background-size: 200% 200%;
             color: white;
             padding: 1rem 2.5rem;
@@ -273,7 +275,18 @@
             font-size: 2.5rem;
             font-weight: 700;
             color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6c757d;
+            font-weight: 300;
             margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .carousel-container {
@@ -508,7 +521,7 @@
             }
             
             .logo-text {
-                font-size: 1rem;
+                font-size: 1.3rem;
             }
             
             .nav-container {
@@ -535,12 +548,12 @@
                 <span></span>
                 <span></span>
             </div>
-            <div class="logo-container">
+            <a href="index.html" class="logo-container">
                 <div class="logo-image">
                     <img src="img/logo.svg" alt="Rainbow Rooster Logo">
                 </div>
                 <span class="logo-text">Rainbow Rooster</span>
-            </div>
+            </a>
             <div class="nav-container">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -571,7 +584,8 @@
     </section>
     
     <section class="carousel-section">
-        <h2 class="section-title">What Makes This Guide Special</h2>
+        <h2 class="section-title">What Makes This Travel Guide Special</h2>
+        <p class="section-subtitle">A comprehensive guide to O'ahu that goes beyond typical tourist recommendations</p>
         <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-track" id="carouselTrack">
@@ -586,9 +600,9 @@
                         <p class="slide-description">Taste the real flavors of O'ahu with our curated guide to authentic plate lunches, shave ice, poke bowls, and local favorites. Every recommendation is a local staple worth seeking out.</p>
                     </div>
                     <div class="carousel-slide">
-                        <div class="slide-icon">🎨</div>
-                        <h3 class="slide-title">Color Your Journey</h3>
-                        <p class="slide-description">Beautiful illustrations of O'ahu's most iconic locations double as coloring pages. Capture your memories and make this guide uniquely yours with your own creative touch.</p>
+                        <div class="slide-icon">✏️</div>
+                        <h3 class="slide-title">Hand-Drawn Illustrations</h3>
+                        <p class="slide-description">Every location features original artwork that captures the natural beauty and whimsical spirit of O'ahu. Each illustration combines careful attention to architectural and landscape details with imaginative touches that bring the island's magic to life.</p>
                     </div>
                 </div>
             </div>
@@ -602,23 +616,23 @@
     
     <section class="features">
         <div class="feature-card">
-            <div class="feature-icon">🌺</div>
-            <h3 class="feature-title">Learn Hawaiian</h3>
-            <p class="feature-description">Embrace the aloha spirit with essential Hawaiian words and phrases throughout the guide</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🖍️</div>
-            <h3 class="feature-title">Coloring Book</h3>
-            <p class="feature-description">Beautiful illustrations to color and make your own</p>
+            <div class="feature-icon">🎨</div>
+            <h3 class="feature-title">Color Your Journey</h3>
+            <p class="feature-description">Transform this guide into your personal travel journal. Each illustration doubles as a coloring page, inviting you to fill in your experiences with your own creative touch and color choices as you explore the island.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🎲</div>
             <h3 class="feature-title">Fun Activities</h3>
-            <p class="feature-description">Attractions egg hunt game, travel scavenger hunt, and travel journal to capture your journey</p>
+            <p class="feature-description">Hunt for hidden eggs throughout the book's illustrations, complete a travel scavenger hunt as you explore the island, and capture your memories in the built-in journal pages to record your thoughts and experiences.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌺</div>
+            <h3 class="feature-title">Learn About Hawai'i</h3>
+            <p class="feature-description">Discover Hawaiian vocabulary words throughout your journey and explore engaging sections on the islands' unique geology, rich history, vibrant culture, and the stories of the people who call Hawai'i home.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">👨‍👩‍👧‍👦</div>
-            <h3 class="feature-title">All Ages</h3>
+            <h3 class="feature-title">For All Ages</h3>
             <p class="feature-description">Perfect for families, solo travelers, and everyone in between</p>
         </div>
     </section>
