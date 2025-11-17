@@ -47,7 +47,7 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
             cursor: pointer;
             text-decoration: none;
         }
@@ -456,7 +456,7 @@
         
         .resource-link {
             display: inline-block;
-            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
             color: white;
             padding: 0.75rem 2rem;
             border-radius: 30px;
@@ -464,11 +464,19 @@
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+            margin: 0.25rem;
         }
         
         .resource-link:hover {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
+        }
+        
+        .resource-links {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .social-links {
@@ -619,7 +627,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="extras.html">Book Extras</a></li>
                 </ul>
-                <a href="https://buy.stripe.com/test_00wdR883pgBQ6LJ8iN2B200" class="buy-button">Buy Now</a>
+                <a href="https://buy.stripe.com/test_8x26oH65e33G24Bdjw0x200" class="buy-button">Buy Now</a>
             </div>
         </nav>
         <div class="mobile-menu" id="mobileMenu">
@@ -700,19 +708,19 @@
                 <h3 class="game-title">Official Hawaii State Symbols</h3>
                 <table class="game-table">
                     <tr>
-                        <td><span class="item-name">Surfing</span><span class="egg">20</span></td>
-                        <td><span class="item-name">Kukui</span><span class="egg">22</span></td>
-                        <td><span class="item-name">Flag</span><span class="egg">4</span></td>
+                        <td><span class="item-name">Surfing</span><span class="egg">21</span></td>
+                        <td><span class="item-name">Kukui</span><span class="egg">23</span></td>
+                        <td><span class="item-name">Flag</span><span class="egg">5</span></td>
                     </tr>
                     <tr>
-                        <td><span class="item-name">Shaka</span><span class="egg">17</span></td>
-                        <td><span class="item-name">Humuhumunukunukuapua'a</span><span class="egg">17</span></td>
+                        <td><span class="item-name">Shaka</span><span class="egg">18</span></td>
+                        <td><span class="item-name">Humuhumunukunukuapua'a</span><span class="egg">18</span></td>
                         <td><span class="item-name">Hibiscus</span><span class="egg">3</span></td>
                     </tr>
                     <tr>
-                        <td><span class="item-name">Hula</span><span class="egg">8</span></td>
-                        <td><span class="item-name">Nene</span><span class="egg">25</span></td>
-                        <td><span class="item-name">Ukulele</span><span class="egg">26</span></td>
+                        <td><span class="item-name">Hula</span><span class="egg">9</span></td>
+                        <td><span class="item-name">Nene</span><span class="egg">26</span></td>
+                        <td><span class="item-name">Ukulele</span><span class="egg">27</span></td>
                     </tr>
                 </table>
             </div>
@@ -721,19 +729,19 @@
                 <h3 class="game-title">Unofficial Hawaii Icons</h3>
                 <table class="game-table">
                     <tr>
-                        <td><span class="item-name">Chicken</span><span class="egg">15</span></td>
-                        <td><span class="item-name">Rainbows</span><span class="egg">27</span></td>
-                        <td><span class="item-name">POG</span><span class="egg">9</span></td>
+                        <td><span class="item-name">Chicken</span><span class="egg">16</span></td>
+                        <td><span class="item-name">Rainbows</span><span class="egg">28</span></td>
+                        <td><span class="item-name">POG</span><span class="egg">10</span></td>
                     </tr>
                     <tr>
-                        <td><span class="item-name">SPAM</span><span class="egg">13</span></td>
-                        <td><span class="item-name">Banyan Tree</span><span class="egg">15</span></td>
+                        <td><span class="item-name">SPAM</span><span class="egg">14</span></td>
+                        <td><span class="item-name">Banyan Tree</span><span class="egg">16</span></td>
                         <td><span class="item-name">Gecko</span><span class="egg">1</span></td>
                     </tr>
                     <tr>
-                        <td><span class="item-name">Mango</span><span class="egg">9</span></td>
-                        <td><span class="item-name">Mynah Bird</span><span class="egg">7</span></td>
-                        <td><span class="item-name">Plumeria</span><span class="egg">10</span></td>
+                        <td><span class="item-name">Mango</span><span class="egg">10</span></td>
+                        <td><span class="item-name">Mynah Bird</span><span class="egg">8</span></td>
+                        <td><span class="item-name">Plumeria</span><span class="egg">11</span></td>
                     </tr>
                 </table>
             </div>
@@ -758,22 +766,28 @@
                 <div class="resource-card">
                     <div class="resource-icon">📍</div>
                     <h3 class="resource-title">O'ahu Attractions Guide</h3>
-                    <p class="resource-description">Apple Maps guide featuring all the locations covered in our book.</p>
-                    <a href="https://maps.apple/ug/vTtBYvb8oYG0bKV4HytyrA" target="_blank" rel="noopener noreferrer" class="resource-link">Open Guide</a>
+                    <p class="resource-description">Interactive map guide featuring all the locations covered in our book.</p>
+                    <div class="resource-links">
+                        <a href="https://maps.apple/ug/vTtBYvb8oYG0bKV4HytyrA" target="_blank" rel="noopener noreferrer" class="resource-link">Apple Maps</a>
+                        <a href="#" class="resource-link">Google Maps</a>
+                    </div>
                 </div>
                 
                 <div class="resource-card">
                     <div class="resource-icon">🗺️</div>
                     <h3 class="resource-title">Extended O'ahu Guide</h3>
-                    <p class="resource-description">Bonus Apple Maps guide with additional recommendations beyond the book.</p>
-                    <a href="#" class="resource-link">Open Guide</a>
+                    <p class="resource-description">Bonus map guide with additional recommendations beyond the book.</p>
+                    <div class="resource-links">
+                        <a href="https://maps.apple/ug/JGvLwFrCSE1ohgASqdyWgB" target="_blank" rel="noopener noreferrer" class="resource-link">Apple Maps</a>
+                        <a href="#" class="resource-link">Google Maps</a>
+                    </div>
                 </div>
                 
                 <div class="resource-card">
-                    <div class="resource-icon">📧</div>
-                    <h3 class="resource-title">Newsletter</h3>
-                    <p class="resource-description">Get updates on new content and insider O'ahu tips delivered to your inbox.</p>
-                    <a href="#" class="resource-link">Subscribe</a>
+                    <div class="resource-icon">📚</div>
+                    <h3 class="resource-title">Travel Resources</h3>
+                    <p class="resource-description">Curated collection of helpful travel planning tools and Hawaii resources.</p>
+                    <a href="#" class="resource-link">Explore Resources</a>
                 </div>
                 
                 <div class="resource-card">
