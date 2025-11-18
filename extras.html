@@ -42,7 +42,8 @@
         }
         
         h3, h4, h5, h6 {
-            font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Sapiens', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300;
         }
         
         @keyframes shimmer {
@@ -387,6 +388,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
+            table-layout: fixed;
         }
         
         .game-table td {
@@ -397,6 +399,7 @@
             color: #2c3e50;
             text-align: center;
             vertical-align: middle;
+            width: 33.333%;
         }
         
         .game-table td:hover {
@@ -408,6 +411,7 @@
             display: block;
             margin-bottom: 0.5rem;
             color: #2c3e50;
+            word-wrap: break-word;
         }
         
         .egg {
@@ -678,7 +682,7 @@
         <div id="photos" class="tab-content active">
             <div class="photo-gallery">
                 <div class="photo-card">
-                    <div class="photo-placeholder">🖍️</div>
+                    <div class="photo-placeholder">🏖️</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Lanikai Beach</h3>
                         <p class="photo-description">One of O'ahu's most stunning beaches with turquoise waters and the iconic Mokulua Islands in the background. Perfect for kayaking and sunrise photos!</p>
@@ -710,7 +714,7 @@
                 </div>
                 
                 <div class="photo-card">
-                    <div class="photo-placeholder">�</div>
+                    <div class="photo-placeholder">🐢</div>
                     <div class="photo-caption">
                         <h3 class="photo-title">Honu (Sea Turtle)</h3>
                         <p class="photo-description">These gentle creatures are sacred in Hawaiian culture. Remember to admire them from a respectful distance!</p>
@@ -774,6 +778,13 @@
         <div id="resources" class="tab-content">
             <div class="resources-grid">
                 <div class="resource-card">
+                    <div class="resource-icon">📸</div>
+                    <h3 class="resource-title">Share Your Colors</h3>
+                    <p class="resource-description">Post your finished pages using #hirainbowrooster and connect with other readers.</p>
+                    <a href="https://www.instagram.com/explore/tags/hirainbowrooster/" target="_blank" rel="noopener noreferrer" class="resource-link">View Gallery</a>
+                </div>
+                
+                <div class="resource-card">
                     <div class="resource-icon">📱</div>
                     <h3 class="resource-title">Download Coloring Pages</h3>
                     <p class="resource-description">Get printable PDFs of select coloring pages from the book!</p>
@@ -781,10 +792,17 @@
                 </div>
                 
                 <div class="resource-card">
-                    <div class="resource-icon">🎓</div>
+                    <div class="resource-icon">📚</div>
                     <h3 class="resource-title">Hawaiian Language Dictionary</h3>
                     <p class="resource-description">Extended pronunciation guide and common phrases to enhance your journey.</p>
                     <a href="https://wehewehe.org/?l=en" target="_blank" rel="noopener noreferrer" class="resource-link">Learn More</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🌺</div>
+                    <h3 class="resource-title">Get the Book</h3>
+                    <p class="resource-description">Find our bookseller friends who carry our book in their stores.</p>
+                    <a href="https://elliottbaybook.com" target="_blank" rel="noopener noreferrer" class="resource-link">Elliott Bay Book Company</a>
                 </div>
                 
                 <div class="resource-card">
@@ -808,17 +826,10 @@
                 </div>
                 
                 <div class="resource-card">
-                    <div class="resource-icon">📚</div>
-                    <h3 class="resource-title">Travel Resources</h3>
-                    <p class="resource-description">Curated collection of helpful travel planning tools and Hawaii resources.</p>
-                    <a href="#" class="resource-link">Explore Resources</a>
-                </div>
-                
-                <div class="resource-card">
-                    <div class="resource-icon">💬</div>
-                    <h3 class="resource-title">Share Your Colors</h3>
-                    <p class="resource-description">Post your finished pages using #rainbowroosterart and connect with other readers.</p>
-                    <a href="https://www.instagram.com/explore/tags/rainbowroosterart/" target="_blank" rel="noopener noreferrer" class="resource-link">View Gallery</a>
+                    <div class="resource-icon">🤝</div>
+                    <h3 class="resource-title">Rainbow Rooster Friends</h3>
+                    <p class="resource-description">Visit our friends and partners in the creative community.</p>
+                    <a href="https://www.heatherbrownart.com" target="_blank" rel="noopener noreferrer" class="resource-link">Heather Brown Art</a>
                 </div>
             </div>
         </div>
@@ -830,6 +841,7 @@
         <div class="social-links">
             <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://facebook.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Like us on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/@hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
             <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
         </div>
         <div class="footer-nav">

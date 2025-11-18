@@ -42,7 +42,8 @@
         }
         
         h3, h4, h5, h6 {
-            font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Sapiens', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300;
         }
         
         @keyframes shimmer {
@@ -250,6 +251,13 @@
             font-weight: 300;
         }
         
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
         .hero-cta {
             display: inline-block;
             background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
@@ -268,6 +276,21 @@
         .hero-cta:hover {
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
+        }
+        
+        .hero-peek {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .hero-peek:hover {
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .book-cover {
@@ -512,6 +535,10 @@
                 font-size: 2.5rem;
             }
             
+            .hero-cta-group {
+                justify-content: center;
+            }
+            
             .book-cover {
                 max-width: 500px;
             }
@@ -564,6 +591,16 @@
                 font-size: 0.8rem;
             }
             
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-cta {
+                width: 100%;
+                text-align: center;
+            }
+            
             .footer-nav {
                 flex-direction: column;
                 gap: 1rem;
@@ -606,8 +643,11 @@
     <section class="hero">
         <div class="hero-content">
             <h1><span class="highlight">Rainbow Rooster</span><br>Colors O'ahu</h1>
-            <p>A local's guide to O'ahu's hidden gems, best eats, and cultural treasures. Travel guide meets coloring book for the young and young at heart.</p>
-            <a href="https://buy.stripe.com/test_8x26oH65e33G24Bdjw0x200" class="hero-cta">Get Your Copy</a>
+            <p>A travel guide meets coloring book for the young and young at heart. Written by a local, this book will help you discover O'ahu's hidden gems, best eats, and cultural treasures.</p>
+            <div class="hero-cta-group">
+                <a href="https://buy.stripe.com/test_8x26oH65e33G24Bdjw0x200" class="hero-cta">Get Your Copy</a>
+                <a href="peek.html" class="hero-peek">Want a preview? Peek inside →</a>
+            </div>
         </div>
         <div class="book-cover">
             <img src="img/cover.png" alt="Rainbow Rooster Colors O'ahu Book Cover">
@@ -616,19 +656,24 @@
     
     <section class="carousel-section">
         <h2 class="section-title">What Makes This Travel Guide Special</h2>
-        <p class="section-subtitle">A comprehensive guide to O'ahu that goes beyond typical tourist recommendations</p>
+        <p class="section-subtitle">Written by a local to give you an authentic experience that engages, entertains, and (hopefully) educates</p>
         <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-track" id="carouselTrack">
                     <div class="carousel-slide">
                         <div class="slide-icon">💎</div>
                         <h3 class="slide-title">Hidden Gems</h3>
-                        <p class="slide-description">Discover secret spots that only locals know. From tucked-away beaches to scenic viewpoints, explore O'ahu beyond the tourist trail with insider recommendations you won't find anywhere else.</p>
+                        <p class="slide-description">Discover secret spots that only locals know. From uncrowded beaches to hiking trails frequented by locals only, explore O'ahu beyond the tourist path with insider recommendations to enjoy O'ahu as locals do.</p>
                     </div>
                     <div class="carousel-slide">
                         <div class="slide-icon">🍜</div>
                         <h3 class="slide-title">Best Local Eats</h3>
                         <p class="slide-description">Taste the real flavors of O'ahu with our curated guide to authentic plate lunches, shave ice, poke bowls, and local favorites. Every recommendation is a local staple worth seeking out.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-icon">📖</div>
+                        <h3 class="slide-title">Not Boring O'ahu Facts</h3>
+                        <p class="slide-description">Instead of learning about O'ahu's history through a historical narrative, you'll instead find answers to questions like why you don't see any shield volcanoes on O'ahu.</p>
                     </div>
                     <div class="carousel-slide">
                         <div class="slide-icon">✏️</div>
@@ -641,6 +686,7 @@
                 <div class="carousel-dot active" onclick="goToSlide(0)"></div>
                 <div class="carousel-dot" onclick="goToSlide(1)"></div>
                 <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                <div class="carousel-dot" onclick="goToSlide(3)"></div>
             </div>
         </div>
     </section>
@@ -649,22 +695,22 @@
         <div class="feature-card">
             <div class="feature-icon">🎨</div>
             <h3 class="feature-title">Color Your Journey</h3>
-            <p class="feature-description">Transform this guide into your personal travel journal. Each illustration doubles as a coloring page, inviting you to fill in your experiences with your own creative touch and color choices as you explore the island.</p>
+            <p class="feature-description">Each attraction features a beautiful illustration that invites you to color them in with your experiences and your own perspectives as you explore the island.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🎲</div>
             <h3 class="feature-title">Fun Activities</h3>
-            <p class="feature-description">Hunt for hidden eggs throughout the book's illustrations, complete a travel scavenger hunt as you explore the island, and capture your memories in the built-in journal pages to record your thoughts and experiences.</p>
+            <p class="feature-description">As you color, hunt for Hawaiian symbols hidden throughout the illustrations, compete to score the most points in a travel scavenger hunt, and answer fun prompts for your travel journal.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🌺</div>
             <h3 class="feature-title">Learn About Hawai'i</h3>
-            <p class="feature-description">Discover Hawaiian vocabulary words throughout your journey and explore engaging sections on the islands' unique geology, rich history, vibrant culture, and the stories of the people who call Hawai'i home.</p>
+            <p class="feature-description">Pick up some common Hawaiian words and explore engaging sections on the island's unique geology, rich history, vibrant culture, and the people who call Hawai'i home.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">👨‍👩‍👧‍👦</div>
             <h3 class="feature-title">For All Ages</h3>
-            <p class="feature-description">Perfect for families, solo travelers, and everyone in between</p>
+            <p class="feature-description">Perfect for families, solo travelers, and everyone in between.</p>
         </div>
     </section>
     
@@ -674,6 +720,7 @@
         <div class="social-links">
             <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://facebook.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Like us on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/@hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
             <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
         </div>
         <div class="footer-nav">
@@ -687,7 +734,7 @@
         let currentSlide = 0;
         const track = document.getElementById('carouselTrack');
         const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = 3;
+        const totalSlides = 4;
         
         function goToSlide(index) {
             currentSlide = index;
