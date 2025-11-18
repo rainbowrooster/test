@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rainbow Rooster Colors O'ahu - A Local's Guide</title>
+    <title>Peek Inside - Rainbow Rooster Colors O'ahu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -222,210 +222,50 @@
             box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
         }
         
-        .hero {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 2rem 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
+        .page-header {
+            background: #f5e5c7;
+            padding: 4rem 3rem;
+            text-align: center;
         }
         
-        .hero-content h1 {
-            font-size: 3.5rem;
+        .page-title {
+            font-size: 3rem;
             font-weight: 700;
             color: #2c3e50;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         
-        .hero-content p {
+        .page-subtitle {
             font-size: 1.25rem;
             color: #6c757d;
-            margin-bottom: 2rem;
             font-weight: 300;
-        }
-        
-        .hero-cta-group {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .hero-cta {
-            display: inline-block;
-            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
-            background-size: 200% 200%;
-            color: white;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: shimmer 3s ease infinite;
-        }
-        
-        .hero-cta:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
-        }
-        
-        .hero-peek {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        
-        .hero-peek:hover {
-            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .book-cover {
-            position: relative;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
-        .book-cover img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-            transition: transform 0.3s;
-        }
-        
-        .book-cover img:hover {
-            transform: scale(1.02);
-        }
-        
-        .carousel-section {
-            background: #f5e5c7;
-            padding: 5rem 3rem;
-            margin: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #6c757d;
-            font-weight: 300;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .carousel-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            background: white;
-            padding: 3rem;
+            padding: 5rem 3rem;
         }
         
-        .carousel {
-            overflow: hidden;
-            width: 100%;
-        }
-        
-        .carousel-track {
+        .peek-gallery {
             display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
+            flex-direction: column;
+            gap: 4rem;
+            margin-bottom: 5rem;
         }
         
-        .carousel-slide {
-            min-width: 100%;
-            width: 100%;
-            flex-shrink: 0;
-            padding: 2rem;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        
-        .slide-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .slide-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .slide-description {
-            font-size: 1.1rem;
-            color: #6c757d;
-            line-height: 1.8;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 2.5rem;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #dee2e6;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .carousel-dot.active {
-            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
-            background-size: 200% 200%;
-            transform: scale(1.3);
-            animation: shimmer 2s ease infinite;
-        }
-        
-        .features {
-            max-width: 1400px;
-            margin: 5rem auto;
-            padding: 0 3rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
+        .spread {
             background: white;
-            padding: 2.5rem;
             border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
-            overflow: hidden;
         }
         
-        .feature-card::before {
+        .spread::before {
             content: '';
             position: absolute;
             top: 0;
@@ -435,29 +275,85 @@
             background: linear-gradient(90deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
             background-size: 200% 200%;
             animation: shimmer 3s ease infinite;
+            z-index: 1;
         }
         
-        .feature-card:hover {
+        .spread:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
         }
         
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .spread-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #f8f9fa;
+            aspect-ratio: 16.5 / 6;
+            object-fit: contain;
         }
         
-        .feature-title {
+        .spread-caption {
+            padding: 2rem;
+            background: white;
+        }
+        
+        .spread-title {
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
         
-        .feature-description {
+        .spread-description {
             font-size: 1rem;
             color: #6c757d;
             font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f5e5c7 0%, #f9ede0 100%);
+            border-radius: 20px;
+            margin-top: 5rem;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
+            background-size: 200% 200%;
+            color: white;
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: shimmer 3s ease infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
         }
         
         .social-links {
@@ -521,30 +417,16 @@
         }
         
         @media (max-width: 968px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-            }
-            
-            .hero-content h1 {
+            .page-title {
                 font-size: 2.5rem;
-            }
-            
-            .hero-cta-group {
-                justify-content: center;
-            }
-            
-            .book-cover {
-                max-width: 500px;
             }
             
             header {
                 padding: 1.5rem 1.5rem;
             }
             
-            .features {
-                padding: 0 1.5rem;
+            .container {
+                padding: 3rem 1.5rem;
             }
         }
         
@@ -587,19 +469,13 @@
                 font-size: 0.8rem;
             }
             
-            .hero-cta-group {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .hero-cta {
-                width: 100%;
-                text-align: center;
-            }
-            
             .footer-nav {
                 flex-direction: column;
                 gap: 1rem;
+            }
+            
+            .peek-gallery {
+                gap: 2rem;
             }
         }
     </style>
@@ -636,79 +512,44 @@
         </div>
     </header>
     
-    <section class="hero">
-        <div class="hero-content">
-            <h1><span class="highlight">Discover O'ahu Like a Local</span></h1>
-            <p>A travel guide meets coloring book for the young and young at heart. Written by a local, this book will help you discover O'ahu's hidden gems, best eats, and cultural treasures.</p>
-            <div class="hero-cta-group">
-                <a href="https://buy.stripe.com/00w00j0LC7Md9p81Utf7i00" class="hero-cta">Pre-Order</a>
-                <a href="peek.html" class="hero-peek">Want a preview? Peek inside →</a>
-            </div>
-        </div>
-        <div class="book-cover">
-            <img src="img/cover.png" alt="Rainbow Rooster Colors O'ahu Book Cover">
-        </div>
-    </section>
+    <div class="page-header">
+        <h1 class="page-title">Peek Inside</h1>
+        <p class="page-subtitle">Get a sneak peek at what's inside Rainbow Rooster Colors O'ahu. Enjoy these sample page spreads featuring beautiful hand-drawn illustrations waiting for your colors.</p>
+    </div>
     
-    <section class="carousel-section">
-        <h2 class="section-title">What Makes This Travel Guide Special</h2>
-        <p class="section-subtitle">Written by a local to give you an authentic experience that engages, entertains, and (hopefully) educates</p>
-        <div class="carousel-container">
-            <div class="carousel">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-slide">
-                        <div class="slide-icon">💎</div>
-                        <h3 class="slide-title">Hidden Gems</h3>
-                        <p class="slide-description">Discover secret spots that only locals know. From uncrowded beaches to hiking trails frequented by locals only, explore O'ahu beyond the tourist path with insider recommendations to enjoy O'ahu as locals do.</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-icon">🍜</div>
-                        <h3 class="slide-title">Best Local Eats</h3>
-                        <p class="slide-description">Taste the real flavors of O'ahu with our curated guide to authentic plate lunches, shave ice, poke bowls, and local favorites. Every recommendation is a local staple worth seeking out.</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-icon">📖</div>
-                        <h3 class="slide-title">Not Boring O'ahu Facts</h3>
-                        <p class="slide-description">Instead of learning about O'ahu's history through a historical narrative, you'll instead find answers to questions like why you don't see any shield volcanoes on O'ahu.</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-icon">✏️</div>
-                        <h3 class="slide-title">Hand-Drawn Illustrations</h3>
-                        <p class="slide-description">Every location features original artwork that captures the natural beauty and whimsical spirit of O'ahu. Each illustration combines careful attention to architectural and landscape details with imaginative touches that bring the island's magic to life.</p>
-                    </div>
+    <div class="container">
+        <div class="peek-gallery">
+            <div class="spread">
+                <img src="img/spread-1.png" alt="Sample page spread 1" class="spread-image">
+                <div class="spread-caption">
+                    <h3 class="spread-title">Spread 1: Hidden Gems</h3>
+                    <p class="spread-description">Discover the vibrant two-page spreads featuring detailed hand-drawn illustrations of O'ahu's most beautiful locations, ready for your colors.</p>
                 </div>
             </div>
-            <div class="carousel-nav">
-                <div class="carousel-dot active" onclick="goToSlide(0)"></div>
-                <div class="carousel-dot" onclick="goToSlide(1)"></div>
-                <div class="carousel-dot" onclick="goToSlide(2)"></div>
-                <div class="carousel-dot" onclick="goToSlide(3)"></div>
+            
+            <div class="spread">
+                <img src="img/spread-2.png" alt="Sample page spread 2" class="spread-image">
+                <div class="spread-caption">
+                    <h3 class="spread-title">Spread 2: Local Favorites</h3>
+                    <p class="spread-description">Each spread combines stunning artwork with fun facts, hidden symbols to find, and prompts to enhance your travel experience.</p>
+                </div>
+            </div>
+            
+            <div class="spread">
+                <img src="img/spread-3.png" alt="Sample page spread 3" class="spread-image">
+                <div class="spread-caption">
+                    <h3 class="spread-title">Spread 3: Cultural Treasures</h3>
+                    <p class="spread-description">Color your journey through O'ahu with these immersive page spreads showcasing the island's natural beauty and rich Hawaiian culture.</p>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <section class="features">
-        <div class="feature-card">
-            <div class="feature-icon">🎨</div>
-            <h3 class="feature-title">Color Your Journey</h3>
-            <p class="feature-description">Each attraction features a beautiful illustration that invites you to color them in with your experiences and your own perspectives as you explore the island.</p>
+        
+        <div class="cta-section">
+            <h2>Ready for Your Copy?</h2>
+            <p>Get the full Rainbow Rooster Colors O'ahu experience with hundreds of pages to color, dozens of locations to discover, and endless ways to engage with the island.</p>
+            <a href="https://buy.stripe.com/00w00j0LC7Md9p81Utf7i00" class="cta-button">Pre-Order Your Book</a>
         </div>
-        <div class="feature-card">
-            <div class="feature-icon">🎲</div>
-            <h3 class="feature-title">Fun Activities</h3>
-            <p class="feature-description">As you color, hunt for Hawaiian symbols hidden throughout the illustrations, compete to score the most points in a travel scavenger hunt, and answer fun prompts for your travel journal.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🌺</div>
-            <h3 class="feature-title">Learn About Hawai'i</h3>
-            <p class="feature-description">Pick up some common Hawaiian words and explore engaging sections on the island's unique geology, rich history, vibrant culture, and the people who call Hawai'i home.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">👨‍👩‍👧‍👦</div>
-            <h3 class="feature-title">For All Ages</h3>
-            <p class="feature-description">Perfect for families, solo travelers, and everyone in between.</p>
-        </div>
-    </section>
+    </div>
     
     <footer>
         <p>&copy; 2025 Rainbow Rooster Guides</p>
@@ -727,27 +568,6 @@
     </footer>
     
     <script>
-        let currentSlide = 0;
-        const track = document.getElementById('carouselTrack');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = 4;
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
-        }
-        
-        setInterval(nextSlide, 5000);
-        
         function toggleMenu() {
             const menu = document.getElementById('mobileMenu');
             const hamburger = document.querySelector('.hamburger');
