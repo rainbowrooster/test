@@ -679,12 +679,12 @@
     
     <div class="container">
         <div class="tabs">
-            <button class="tab-button active" onclick="showTab(event, 'photos')">Photos</button>
+            <button class="tab-button active" onclick="showTab(event, 'resources')">Resources</button>
             <button class="tab-button" onclick="showTab(event, 'eggs')">Egg Hunt Answers</button>
-            <button class="tab-button" onclick="showTab(event, 'resources')">Resources</button>
+            <button class="tab-button" onclick="showTab(event, 'photos')">Original Pictures</button>
         </div>
         
-        <div id="photos" class="tab-content active">
+        <div id="photos" class="tab-content">
             <div class="photo-gallery">
                 <div class="photo-card">
                     <div class="photo-placeholder">🏖️</div>
@@ -780,7 +780,7 @@
             </div>
         </div>
         
-        <div id="resources" class="tab-content">
+        <div id="resources" class="tab-content active">
             <div class="resources-grid">
                 <div class="resource-card">
                     <div class="resource-icon">📸</div>
@@ -805,9 +805,12 @@
                 
                 <div class="resource-card">
                     <div class="resource-icon">🌺</div>
-                    <h3 class="resource-title">Get the Book</h3>
+                    <h3 class="resource-title">Find the Book</h3>
                     <p class="resource-description">Find our bookseller friends who carry our book in their stores.</p>
-                    <a href="https://elliottbaybook.com" target="_blank" rel="noopener noreferrer" class="resource-link">Elliott Bay Book Company</a>
+                    <div class="resource-links">
+                        <a href="https://elliottbaybook.com" target="_blank" rel="noopener noreferrer" class="resource-link">Elliott Bay (Seattle)</a>
+                        <a href="https://alohanorthwestllc.com" target="_blank" rel="noopener noreferrer" class="resource-link">Aloha Northwest (Kirkland & Edmonds)</a>
+                    </div>
                 </div>
                 
                 <div class="resource-card">
