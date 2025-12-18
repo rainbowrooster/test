@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find In Stores - Rainbow Rooster Colors O'ahu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8KYX8BF1BM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8KYX8BF1BM');
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        @font-face {
+            font-family: 'Sapiens';
+            src: url('fonts/sapiens-regular-webfont.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Sapiens';
+            src: url('fonts/sapiens-light-webfont.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: white;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        h1, h2, .logo-text {
+            font-family: 'Sapiens', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        h3, h4, h5, h6 {
+            font-family: 'Sapiens', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        header {
+            background: #f5e5c7;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .logo-image {
+            width: 75px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            animation: shimmer 3s ease infinite;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 101;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 88px;
+            left: 0;
+            right: 0;
+            background: #f5e5c7;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu ul li {
+            padding: 1rem 3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .mobile-menu ul li a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
+            background-size: 200% 200%;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+            animation: shimmer 3s ease infinite;
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
+        }
+        
+        .page-header {
+            background: #f5e5c7;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #6c757d;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .map-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+        }
+        
+        .map-link:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+        
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .store-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .store-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
+            z-index: 1;
+        }
+        
+        .store-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .store-image {
+            width: 100%;
+            height: 250px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            object-fit: contain;
+        }
+        
+        .store-image-link {
+            display: block;
+            text-decoration: none;
+        }
+        
+        .store-content {
+            padding: 2rem;
+        }
+        
+        .store-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+        
+        .store-location {
+            font-size: 0.95rem;
+            color: #d1472b;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .store-description {
+            font-size: 0.95rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .store-name-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .store-name-link:hover {
+            color: #d1472b;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(84, 161, 133, 0.4);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(84, 161, 133, 0.6);
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 968px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            header {
+                padding: 1.5rem 1.5rem;
+            }
+            
+            .container {
+                padding: 3rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            nav {
+                justify-content: space-between;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+                order: -1;
+                margin-right: 1rem;
+            }
+            
+            .logo-container {
+                flex: 1;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .logo-image {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .nav-container {
+                gap: 1rem;
+            }
+            
+            .buy-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .stores-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="index.html" class="logo-container">
+                <div class="logo-image">
+                    <img src="img/logo.svg" alt="Rainbow Rooster Logo">
+                </div>
+                <span class="logo-text">Rainbow Rooster</span>
+            </a>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="extras.html">Book Extras</a></li>
+                </ul>
+                <a href="https://buy.stripe.com/00w00j0LC7Md9p81Utf7i00" class="buy-button">Buy Now</a>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+                <li><a href="extras.html" onclick="toggleMenu()">Book Extras</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="page-header">
+        <h1 class="page-title">Find In Stores</h1>
+        <p class="page-subtitle">Support your local independent booksellers and save on shipping by picking up your copy of Rainbow Rooster Colors O'ahu near you.</p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+            <a href="https://maps.apple/ug/xQLC5cVw_o1tNDJLzhN1pC" target="_blank" rel="noopener noreferrer" class="map-link">Apple Maps Guide</a>
+            <a href="https://maps.app.goo.gl/GNQBum1iM12kBYdA9" target="_blank" rel="noopener noreferrer" class="map-link">Google Maps Guide</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="stores-grid">
+            <div class="store-card">
+                <a href="http://alohanorthwestllc.com" target="_blank" rel="noopener noreferrer" class="store-image-link">
+                    <img src="https://alohanorthwestllc.com/cdn/shop/files/Aloha_Northwest_LLC_official_log_14a69c23-f14f-4b85-812d-8cbfa28578ef.webp" alt="Aloha Northwest" class="store-image">
+                </a>
+                <div class="store-content">
+                    <h3 class="store-name"><a href="http://alohanorthwestllc.com" target="_blank" rel="noopener noreferrer" class="store-name-link">Aloha Northwest</a></h3>
+                    <p class="store-location">Kirkland &amp; Edmonds, WA</p>
+                    <p class="store-description">Aloha Northwest is a breath of fresh aloha on gray Seattle days. Tanya's stores feature beautiful jewelry, unique island gifts, and of course, awesome keiki sections. Find your way here and you'll be transported to the islands and find something perfect to bring home.</p>
+                </div>
+            </div>
+            
+            <div class="store-card">
+                <a href="https://hawaiigeneralstore.net" target="_blank" rel="noopener noreferrer" class="store-image-link">
+                    <img src="https://cdn11.bigcommerce.com/s-uxhwh/images/stencil/original/logo-tagline_1598573700__31230.original.png" alt="Hawaii General Store" class="store-image">
+                </a>
+                <div class="store-content">
+                    <h3 class="store-name"><a href="https://hawaiigeneralstore.net" target="_blank" rel="noopener noreferrer" class="store-name-link">Hawaii General Store</a></h3>
+                    <p class="store-location">Seattle, WA</p>
+                    <p class="store-description">Hawaii General Store feels like Gail has literally lifted and transported the store directly from the islands. You'll find all the essentials here including Dole Whip, crackseed, aloha attire, and even Hawaiian breads.</p>
+                </div>
+            </div>
+            
+            <div class="store-card">
+                <a href="https://elliottbaybook.com" target="_blank" rel="noopener noreferrer" class="store-image-link">
+                    <img src="https://pbs.twimg.com/profile_images/1015825875575582720/msJhYYbt_400x400.jpg" alt="Elliott Bay Book Company" class="store-image">
+                </a>
+                <div class="store-content">
+                    <h3 class="store-name"><a href="https://elliottbaybook.com" target="_blank" rel="noopener noreferrer" class="store-name-link">Elliott Bay Book Company</a></h3>
+                    <p class="store-location">Seattle, WA</p>
+                    <p class="store-description">Our favorite Seattle independent bookstore featuring not only a broad selection of books but also booksellers who love their work. We are so proud to be represented here.</p>
+                </div>
+            </div>
+            
+            <div class="store-card">
+                <a href="https://www.banterbookshop.com" target="_blank" rel="noopener noreferrer" class="store-image-link">
+                    <img src="https://cdn1.bookmanager.com/i/9924361/logo_navbar.png?cb=1654980550" alt="Banter Bookshop" class="store-image">
+                </a>
+                <div class="store-content">
+                    <h3 class="store-name"><a href="https://www.banterbookshop.com" target="_blank" rel="noopener noreferrer" class="store-name-link">Banter Bookshop</a></h3>
+                    <p class="store-location">Fremont, CA</p>
+                    <p class="store-description">Amy has built Fremont's independent bookstore into a true community center. We love their kids area and their regular community events.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Rainbow Rooster Guides</p>
+        <p>Written by Sam Chen and Robert Chen • Art by Waibun Lee and Emily Lee</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem;"><a href="#" onclick="decodeEmail(); return false;" style="color: white; text-decoration: underline;">We'd love to hear from you!</a></p>
+        <div class="social-links">
+            <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="extras.html">Book Extras</a>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+        
+        function decodeEmail() {
+            const encodedEmail = 'aW5mb0BoaXJhaW5ib3dyb29zdGVyLmNvbQ==';
+            const decodedEmail = atob(encodedEmail);
+            window.location.href = 'mailto:' + decodedEmail;
+        }
+    </script>
+</body>
+</html>
