@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Linesheet - Rainbow Rooster Colors O'ahu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        @font-face {
+            font-family: 'Sapiens';
+            src: url('fonts/sapiens-regular-webfont.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: white;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        h1, h2, .logo-text {
+            font-family: 'Sapiens', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        h3, h4, h5, h6 {
+            font-family: 'Sapiens', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        header {
+            background: #f5e5c7;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .logo-image {
+            width: 75px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            animation: shimmer 3s ease infinite;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 101;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 88px;
+            left: 0;
+            right: 0;
+            background: #f5e5c7;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu ul li {
+            padding: 1rem 3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .mobile-menu ul li a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #d1472b, #e8824f, #d97538);
+            background-size: 200% 200%;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(209, 71, 43, 0.4);
+            animation: shimmer 3s ease infinite;
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(209, 71, 43, 0.6);
+        }
+        
+        .page-header {
+            background: #f5e5c7;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #6c757d;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+        
+        .linesheet-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .linesheet-table th {
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .linesheet-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 0.95rem;
+        }
+        
+        .linesheet-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .linesheet-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .product-sku {
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+        
+        .price {
+            font-weight: 600;
+            color: #d1472b;
+        }
+        
+        .info-section {
+            background: #f5e5c7;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+        
+        .info-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: #2c3e50;
+        }
+        
+        .info-section p {
+            color: #6c757d;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-info {
+            background: white;
+            border-left: 4px solid #d1472b;
+            padding: 2rem;
+            border-radius: 5px;
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .contact-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d1472b, #d97538, #54a185, #427da6, #754a66);
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(84, 161, 133, 0.4);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(84, 161, 133, 0.6);
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.7;
+        }
+        
+        @media print {
+            header, footer, .page-subtitle {
+                display: none;
+            }
+            
+            .page-header {
+                padding: 2rem 0;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .linesheet-table {
+                font-size: 0.85rem;
+            }
+            
+            .linesheet-table th,
+            .linesheet-table td {
+                padding: 1rem;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="index.html" class="logo-container">
+                <div class="logo-image">
+                    <img src="img/logo.svg" alt="Rainbow Rooster Logo">
+                </div>
+                <span class="logo-text">Rainbow Rooster</span>
+            </a>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="extras.html">Book Extras</a></li>
+                    <li><a href="find.html">Find In Stores</a></li>
+                </ul>
+                <a href="https://buy.stripe.com/00w00j0LC7Md9p81Utf7i00" class="buy-button">Buy Now</a>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+                <li><a href="extras.html" onclick="toggleMenu()">Book Extras</a></li>
+                <li><a href="find.html" onclick="toggleMenu()">Find In Stores</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="page-header">
+        <h1 class="page-title">Wholesale Linesheet</h1>
+        <p class="page-subtitle">Product Information for Wholesale Buyers</p>
+    </div>
+    
+    <div class="container">
+        <div class="info-section">
+            <h3>About Rainbow Rooster Colors O'ahu</h3>
+            <p>Unique travel guide meets coloring book that features a friendly rooster who guides readers of all ages to the best food and attractions in a fun, engaging, and (gasp!) educational way—as though we were making personal recommendations to friends.</p>
+        </div>
+        
+        <h2 style="margin-bottom: 2rem; color: #2c3e50;">Product Specifications</h2>
+        
+        <table class="linesheet-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>ISBN</th>
+                    <th>Format</th>
+                    <th>Pages</th>
+                    <th>Dimensions</th>
+                    <th>Wholesale Price</th>
+                    <th>Retail Price</th>
+                    <th>MOQ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="product-name">Rainbow Rooster Colors O'ahu</span></td>
+                    <td>979-8-9934654-8-7</td>
+                    <td>Softcover</td>
+                    <td>78</td>
+                    <td>8.5" x 7"</td>
+                    <td class="price">$9.00</td>
+                    <td class="price">$14.99</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="info-section" style="margin-top: 3rem;">
+            <h3>Wholesale Terms</h3>
+            <p><strong>Discount Structure:</strong> Standard wholesale discount of 40% off</p>
+            <p><strong>Shipping:</strong> $10 for addresses outside of Honolulu</p>
+            <p><strong>Returns:</strong> We are unable to accept returns</p>
+            <p><strong>Payment Terms:</strong> Net 30. Accept check, ACH, Venmo. Credit card payments are accepted for an additional 3% fee</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3 style="margin-bottom: 1rem;">Contact Information</h3>
+            <p><span class="contact-label">Email:</span> <a href="mailto:info@hirainbowrooster.com" style="color: #d1472b; text-decoration: none;">info@hirainbowrooster.com</a></p>
+            <p><span class="contact-label">For inquiries:</span> We'd love to hear from you! Please reach out with any questions about wholesale opportunities.</p>
+        </div>
+        
+        <div class="info-section" style="margin-top: 3rem;">
+            <h3>Features & Benefits</h3>
+            <p>✓ <strong>A Fresh Take on the Travel Guide:</strong> A one-of-a-kind hybrid combining insights of a great travel guidebook with the fun of coloring books, perfect for tourists and locals alike.</p>
+            <p>✓ <strong>What Makes It Special:</strong> Written from the perspective of a 10-year-old co-author, readers follow Rainbow Rooster to 28 attractions on the island. Hand-drawn illustrations invite personalization through coloring, with a fun "egg hunt" challenging readers to find 18 Hawaiian symbols.</p>
+            <p>✓ <strong>Interactive Features:</strong> Travel journal prompts and a fun travel scavenger hunt extend the adventure beyond the page, engaging readers across multiple visits.</p>
+            <p>✓ <strong>Educational Value:</strong> Island insights including fun facts, Hawaiian vocabulary, and unique cultural history make learning accessible and fun for all ages.</p>
+            <p>✓ <strong>Broad Market Appeal:</strong> Serves as a pre-trip planner, meaningful souvenir, or thoughtful gift for families seeking authentic travel experiences and meaningful connections to Hawai'i.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Rainbow Rooster Guides</p>
+        <p>Written by Sam Chen and Robert Chen • Art by Waibun Lee and Emily Lee</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem;"><a href="mailto:info@hirainbowrooster.com" style="color: white; text-decoration: underline;">We'd love to hear from you!</a></p>
+        <div class="social-links">
+            <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:info@hirainbowrooster.com" class="social-icon" title="Email us">✉️</a>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="extras.html">Book Extras</a>
+            <a href="find.html">Find In Stores</a>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
