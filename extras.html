@@ -819,4 +819,60 @@
                     <div class="resource-icon">🗺️</div>
                     <h3 class="resource-title">Extended O'ahu Guide</h3>
                     <p class="resource-description">Bonus map guide with additional recommendations beyond the book.</p>
-                    <a href="https://maps.apple/ug/JGvLwFrCSE1ohgASqdyWgB
+                    <a href="https://maps.apple/ug/JGvLwFrCSE1ohgASqdyWgB" target="_blank" rel="noopener noreferrer" class="resource-link">Apple Maps</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🤝</div>
+                    <h3 class="resource-title">Rainbow Rooster Friends</h3>
+                    <p class="resource-description">Visit our friends and partners in the creative community.</p>
+                    <a href="https://www.heatherbrownart.com" target="_blank" rel="noopener noreferrer" class="resource-link">Heather Brown Art</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Rainbow Rooster Guides</p>
+        <p>Written by Sam Chen and Robert Chen • Art by Waibun Lee and Emily Lee</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem;"><a href="#" onclick="decodeEmail(); return false;" style="color: white; text-decoration: underline;">We'd love to hear from you!</a></p>
+        <div class="social-links">
+            <a href="https://instagram.com/hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@hirainbowrooster" target="_blank" rel="noopener noreferrer" class="social-icon" title="Subscribe on YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" onclick="decodeEmail(); return false;" class="social-icon" title="Email us">✉️</a>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="extras.html">Book Extras</a>
+            <a href="find.html">Find In Stores</a>
+        </div>
+    </footer>
+    
+    <script>
+        function showTab(event, tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+        
+        function decodeEmail() {
+            const encodedEmail = 'aW5mb0BoaXJhaW5ib3dyb29zdGVyLmNvbQ==';
+            const decodedEmail = atob(encodedEmail);
+            window.location.href = 'mailto:' + decodedEmail;
+        }
+    </script>
+</body>
+</html>
